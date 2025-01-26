@@ -1,66 +1,50 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Master Laravel 11 & PHP: From beginner to advanced
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### This is the second project out of five projects from the udemy course - https://www.udemy.com/course/laravel-beginner-fundamentals/?couponCode=BFCPSALE24
 
-## About Laravel
+## Project #2: Book Review
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Languages, frameworks, type of database & other tools that were used in this project can be located at the bottom of this read me file.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Project setup
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   I began with making sure **PHP, Composer and the Laravel installer** is installed with the help of both the course & Laravel documentation. If the Laravel installer isn't installed I was able to with the help of the following command: `composer global require laravel/installer`.
+-   The project was created using the following command after the above was installed: `laravel new book-review`.
+-   Then changed directories with cd task-list.
 
-## Learning Laravel
+-   Start the application with the following command `php artisan serve`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   The application ran into a problem when running the above command. While trying to start the local development server it failed to listen on port 8000. After some research I was able to discover I had to change a variable in the _php.ini_ configuration file at the location of where PHP is stored on my machine.
+-   I had to locate the "variables_order" and assign a value of `GPCS` and made sure it was uncommented.
+-   In additon to this, originally when setting up I had also downloaded Laravel Herd (but ended up not using herd the second time around setting up) which led to the development server still failing to listen on port 8000. At the time I had needed to change the "variables order" where Laravel Herd was located.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+-   When setting up Docker desktop I had MySQL running as a service on my machine which resulted in local databases created instead of through docker. I had to ensure the service wasn't running in order for databases to be created and discovered through docker/adminer.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+-   This allowed migrations to work successfully.
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### Frameworks & languages included:
 
-### Premium Partners
+-   PHP & Laravel 11 framework
+-   Docker
+-   MySQL
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+### VS Code extensions:
 
-## Contributing
+-   PHP
+-   PHP Intelephense
+-   Tailwind CSS IntelliSense (suggestions for Tailwind CSS classes) - this only works if you have Tailwind installed using Vite, not when using CDN (we install & setup Tailwind in project #5)
+-   Tailwind Fold (to hide Tailwind CSS classes)
+-   SQLite Viewer (to browse SQLite databases)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### Laravel Extension Pack - will install most of the below suggested Laravel extensions + more. If you installed this one, skip the list below
 
-## Code of Conduct
+If you want specific ones, here's the list:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Laravel Extra Intellisense
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+-   Laravel goto view
+-   Laravel Blade formatter
+-   Laravel Blade Snippets
+-   Laravel Blade Wrapper
