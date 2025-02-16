@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
             ->for($book)
             ->create();
         });
-        Book::factory(34)->create()->each(function ($book) {
+        Book::factory(33)->create()->each(function ($book) {
             $numReviews = random_int(5, 30);
 
             Review::factory()->count($numReviews)
@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
             ->for($book)
             ->create();
         });
-        Book::factory(33)->create()->each(function ($book) {
+        Book::factory(34)->create()->each(function ($book) {
             $numReviews = random_int(5, 30);
 
             Review::factory()->count($numReviews)
