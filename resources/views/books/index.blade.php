@@ -55,5 +55,10 @@
                 </div>
             </li>
         @endforelse
+
+        <!-- Pagination Links -->
+        <div>
+            {{ $books->links() }}
+        </div>
     </ul>
 @endsection
