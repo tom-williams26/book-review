@@ -15,23 +15,27 @@ class BookController extends Controller
         $title = $request->input('title');
         $filter = $request->input('filter', '');
 
-        $books = Book::when($title, fn ($query, $title) =>
+        $booksQuery = Book::when($title, fn ($query, $title) =>
              $query->title($title)
         );
 
-        $books = match($filter) {
-            'popular_last_month' => $books->popularLastMonth(),
-            'popular_last_6months' => $books->popularLast6Months(),
-            'highest_rated_last_month' => $books->highestRatedLastMonth(),
-            'highest_rated_last_6months' => $books->highestRatedLast6Months(),
-            default => $books->latest()->withAvgRating()->withReviewsCount()
+        $booksQuery = match($filter) {
+            'popular_last_month' => $booksQuery->popularLastMonth(),
+            'popular_last_6months' => $booksQuery->popularLast6Months(),
+            'highest_rated_last_month' => $booksQuery->highestRatedLastMonth(),
+            'highest_rated_last_6months' => $booksQuery->highestRatedLast6Months(),
+            default => $booksQuery->latest()->withAvgRating()->withReviewsCount()
         };
 
+        // Generate cache key for pagination
         $cacheKey = 'books:' . $filter . ':' . $title . ':' . request('page', 1);
-        $books = cache()->remember($cacheKey, 3600, fn() => $books->paginate(10));
 
-        return view('books.index',  ['books' => $books]);
+        // Cache the entire paginator (including items and metadata)
+        $books = cache()->remember($cacheKey, 3600, fn() => $booksQuery->paginate(10));
+
+        return view('books.index', ['books' => $books]);
     }
+
 
     /**
      * Show the form for creating a new resource.
