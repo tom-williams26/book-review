@@ -7,8 +7,6 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-    // Rate limiting not enabled. Requires middleware and route service provider
-    // which are current not avaliable to this project at this time.
     /**
      * Display a listing of the resource.
      */
